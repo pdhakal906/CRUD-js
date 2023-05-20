@@ -2,25 +2,26 @@ document.getElementById("submit").addEventListener("click", function (event) {
   event.preventDefault(); // Prevent form submission to avoid page reload
 
   // Retrieve form values
-  var houseNumber = document.getElementById("house-number").value;
+  var id = document.getElementById("house-number").value;
   var address = document.getElementById("address").value;
   var mobile_number = document.getElementById("mobile-number").value;
   var name = document.getElementById("name").value;
   var gender = document.getElementById("gender").value;
   var age = document.getElementById("age").value;
   var citizenship_number = document.getElementById("citizenship-number").value;
-  var educational_qualification = document.getElementById("educational-qualification").value;
+  var occupation = document.getElementById("occupation").value;
+
 
   // Create an object or data structure to store the values
   var formData = {
-    houseNumber: houseNumber,
+    id: id,
     address: address,
     mobile_number: mobile_number,
     name: name,
     gender: gender,
     age: age,
     citizenship_number: citizenship_number,
-    educational_qualification: educational_qualification
+    occupation: occupation
 
   };
 
@@ -36,9 +37,7 @@ document.getElementById("submit").addEventListener("click", function (event) {
   var storedData = localStorage.getItem("formData");
   var formData = JSON.parse(storedData);
 
-  console.log(formData.houseNumber);
-  console.log(formData.address);
-  console.log(formData.mobile_number);
+
 
 });
 
