@@ -1,7 +1,7 @@
 document.getElementById("submit").addEventListener("click", function (event) {
   event.preventDefault(); // Prevent form submission to avoid page reload
 
-  // Retrieve form values
+
   var id = document.getElementById("house-number").value;
   var address = document.getElementById("address").value;
   var mobile_number = document.getElementById("mobile-number").value;
@@ -12,7 +12,7 @@ document.getElementById("submit").addEventListener("click", function (event) {
   var occupation = document.getElementById("occupation").value;
 
 
-  // Create an object or data structure to store the values
+
   var formData = {
     id: id,
     address: address,
@@ -25,20 +25,27 @@ document.getElementById("submit").addEventListener("click", function (event) {
 
   };
 
-  // Save the form data in local storage
-  localStorage.setItem("formData", JSON.stringify(formData));
 
-  // Optional: Provide feedback to the user
-  alert("Form data saved!");
 
-  // Clear the form inputs if desired
-  document.getElementById("myForm").reset();
 
   var storedData = localStorage.getItem("formData");
-  var formData = JSON.parse(storedData);
+  var allFormData = storedData ? JSON.parse(storedData) : [];
 
+  if (!Array.isArray(allFormData)) {
+    allFormData = [];
+  }
 
+  allFormData.push(formData);
+
+  localStorage.setItem("formData", JSON.stringify(allFormData));
+
+  alert("Form data saved!");
+
+  document.getElementById("myForm").reset();
 
 });
 
+var storedData = localStorage.getItem("formData");
+var allFormData = JSON.parse(storedData);
 
+console.log(allFormData);
