@@ -6,21 +6,21 @@ function getAllResult() {
   var ids = [];
   var names = [];
   var addresses = [];
-  var phoneNumbers = [];
+
 
   for (var i = 0; i < allFormData.length; i++) {
     var formData = allFormData[i];
     ids.push(formData.id);
     names.push(formData.name);
     addresses.push(formData.address);
-    phoneNumbers.push(formData.mobile_number);
+
   }
 
   return {
     ids: ids,
     names: names,
-    addresses: addresses,
-    phoneNumbers: phoneNumbers
+    addresses: addresses
+
   };
 }
 
@@ -33,11 +33,18 @@ var phone = result.phoneNumbers
 var table = document.getElementById("data-table");
 
 for (var i = 0; i < ids.length; i++) {
-  var html = "<tr><td id='house-number'>" + ids[i] + "</td><td id = 'name'><a href='family_report.html?house=" + ids[i] + "'>" + names[i] + "</a></td><td id='address'>" + addresses[i] + "</td><td><button class = 'btn btn-danger'>Delete</button></td></tr>";
+  var html = "<tr><td id='house-number'>" + ids[i] + "</td><td id = 'name'><a href='family_report.html?house=" + ids[i] + "'>" + names[i] + "</a></td><td id='address'>" + addresses[i] + "</td><td><a class = 'btn btn-danger' href = 'main_report_list.htnl' id = 'delete'>X</a></td></tr>";
 
   table.innerHTML += html;
 }
+id = document.getElementById("house-number").value;
 
+var delete_button = document.getElementById("delete");
+delete_button.addEventListener("click", function deleteFam);
+function deleteFam(id) {
+  var index = data.findIndex(function)
+
+}
 
 
 // console.log("All IDs:", result.ids);
