@@ -1,10 +1,13 @@
+var url = window.location.href;
+var params = new URL(url).searchParams;
+var house = params.get("house");
+var id = 1;
+
 document.getElementById("submit").addEventListener("click", function (event) {
   event.preventDefault(); // Prevent form submission to avoid page reload
 
 
-  var id = document.getElementById("house-number").value;
-  var address = document.getElementById("address").value;
-  var mobile_number = document.getElementById("mobile-number").value;
+  var house_number = house;
   var name = document.getElementById("name").value;
   var gender = document.getElementById("gender").value;
   var age = document.getElementById("age").value;
@@ -14,9 +17,8 @@ document.getElementById("submit").addEventListener("click", function (event) {
 
 
   var formData = {
+    house_number: house_number,
     id: id,
-    address: address,
-    mobile_number: mobile_number,
     name: name,
     gender: gender,
     age: age,
@@ -28,7 +30,7 @@ document.getElementById("submit").addEventListener("click", function (event) {
 
 
 
-  var storedData = localStorage.getItem("headData");
+  var storedData = localStorage.getItem("memData");
   var allFormData = storedData ? JSON.parse(storedData) : [];
 
   if (!Array.isArray(allFormData)) {
@@ -37,17 +39,11 @@ document.getElementById("submit").addEventListener("click", function (event) {
 
   allFormData.push(formData);
 
-  localStorage.setItem("headData", JSON.stringify(allFormData));
+  localStorage.setItem("memData", JSON.stringify(allFormData));
 
-  alert("New Family Added");
+  alert("New Member Added");
 
   document.getElementById("myForm").reset();
-  window.location.href = "add_mem.html?house=" + id;
+  id += 1;
+
 });
-
-// var storedData = localStorage.getItem("formData");
-// var allFormData = JSON.parse(storedData);
-
-// console.log(allFormData);
-
-

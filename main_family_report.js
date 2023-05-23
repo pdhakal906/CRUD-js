@@ -3,10 +3,10 @@ var params = new URL(url).searchParams;
 var house = params.get("house");
 
 
-console.log(house);
+
 
 // Retrieve all stored form data from local storage
-var storedData = localStorage.getItem("formData");
+var storedData = localStorage.getItem("headData");
 var allFormData = JSON.parse(storedData) || [];
 
 // Function to find data by ID

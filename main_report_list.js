@@ -1,6 +1,6 @@
-var storedData = localStorage.getItem("formData");
+var storedData = localStorage.getItem("headData");
 var allFormData = JSON.parse(storedData) || [];
-console.log("hello");
+
 // Function to get all IDs, names, addresses, and phone numbers
 function getAllResult() {
   var ids = [];
