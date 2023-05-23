@@ -29,7 +29,6 @@ var result = getAllResult();
 var ids = result.ids;
 var names = result.names;
 var addresses = result.addresses;
-var phone = result.phoneNumbers
 var table = document.getElementById("data-table");
 
 for (var i = 0; i < ids.length; i++) {

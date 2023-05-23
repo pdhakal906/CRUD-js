@@ -9,7 +9,7 @@ document.getElementById("submit").addEventListener("click", function (event) {
   var gender = document.getElementById("gender").value;
   var age = document.getElementById("age").value;
   var citizenship_number = document.getElementById("citizenship-number").value;
-  var occupation = document.getElementById("occupation").value;
+
 
 
 
@@ -20,9 +20,7 @@ document.getElementById("submit").addEventListener("click", function (event) {
     name: name,
     gender: gender,
     age: age,
-    citizenship_number: citizenship_number,
-    occupation: occupation
-
+    citizenship_number: citizenship_number
   };
 
 

@@ -42,15 +42,15 @@
     </nav>
     <br>
     <div class="container">
+      <h5 class="text-center">Family Head Details</h5>
       <span class="house-number">House Number:&nbsp;</span>
       <span id="house-number"></span>
       <span class="address">Address:&nbsp;</span><span id="address"></span>
       <span class="mobile-number">Mobile Number:&nbsp;</span><span id="mobile-number"></span>
 
-      <table class="table">
+      <table class="table" id="head-table">
         <thead>
           <tr>
-            <th>House Number</th>
             <th>Name</th>
             <th>Gender</th>
             <th>Age</th>
@@ -59,15 +59,21 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td id="house-number-1"></td>
-            <td id="name"></td>
-            <td id="gender"></td>
-            <td id="age"></td>
-            <td id="citizenship-number"></td>
-            <td><button class="btn btn-success">Edit</button>&nbsp;<button class="btn btn-danger">Delete</button></td>
-          </tr>
+
         </tbody>
+      </table>
+      <h5 class="text-center">Members Details</h5>
+      <table class="table" id="member-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Citizenship Number</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
       </table>
     </div>
 
