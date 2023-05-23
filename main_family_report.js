@@ -85,8 +85,8 @@ function fillMem() {
     mem_gender.textContent = memResult[i].gender;
     mem_age.textContent = memResult[i].age;
     mem_citizenship_number.textContent = memResult[i].citizenship_number;
-    edit_mem.href = "edit_mem.html?house=" + house;
-    delete_mem.href = "family_report.html?house=" + house;
+    edit_mem.href = "edit_mem.html?mem_id=" + memResult[i].id + "&&house=" + memResult[i].house_number;
+    delete_mem.href = "family_report.html?mem_id=" + memResult[i].id;
     edit_mem.className = "btn btn-success";
     delete_mem.className = "btn btn-danger";
     edit_mem.innerText = "Edit";
