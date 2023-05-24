@@ -79,14 +79,14 @@ function fillMem() {
     var edit_element = document.createElement("td");
     var delete_element = document.createElement("td");
     var edit_mem = document.createElement("a");
-    var delete_mem = document.createElement("a");
+    var delete_mem = document.createElement("btn");
 
     mem_name.textContent = memResult[i].name;
     mem_gender.textContent = memResult[i].gender;
     mem_age.textContent = memResult[i].age;
     mem_citizenship_number.textContent = memResult[i].citizenship_number;
     edit_mem.href = "edit_mem.html?mem_id=" + memResult[i].id + "&&house=" + memResult[i].house_number;
-    delete_mem.href = "family_report.html?mem_id=" + memResult[i].id;
+    delete_mem.id = "delete";
     edit_mem.className = "btn btn-success";
     delete_mem.className = "btn btn-danger";
     edit_mem.innerText = "Edit";
@@ -117,3 +117,12 @@ if (memResult) {
 }
 
 
+
+var delete_member = document.getElementById("delete");
+delete_member.addEventListener("click", function (event) {
+  event.preventDefault();
+  house_number = house;
+
+
+
+})
