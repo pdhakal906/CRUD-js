@@ -82,9 +82,10 @@ function generateId() {
   }
 }
 var itr = generateId();
-console.log(itr);
+
 document.getElementById("submit").addEventListener("click", function (event) {
-  event.preventDefault(); // Prevent form submission to avoid page reload
+  // Prevent form submission to avoid page reload
+  event.preventDefault();
 
   var house_number = house;
   var name = document.getElementById("name").value;
