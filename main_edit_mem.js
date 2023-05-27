@@ -28,6 +28,7 @@ function fillMem() {
   var mem_age = document.getElementById("age");
   var mem_citizenship_number = document.getElementById("citizenship-number");
 
+
   mem_name.value = memResult.name;
   mem_gender.value = memResult.gender;
   mem_gender.selected = memResult.gender;
@@ -37,6 +38,7 @@ function fillMem() {
 }
 
 function updateData(house_number, id, name, gender, age, citizenship_number) {
+
   for (var i = 0; i < allMemData.length; i++) {
     if (allMemData[i].house_number.toString() === house_number && allMemData[i].id.toString() === id) {
       allMemData[i].name = name;
@@ -48,7 +50,7 @@ function updateData(house_number, id, name, gender, age, citizenship_number) {
   }
 
   localStorage.setItem("memData", JSON.stringify(allMemData));
-  alert("Data saved");
+
 }
 
 document.getElementById("submit").addEventListener("click", function editMem(event) {
@@ -61,5 +63,10 @@ document.getElementById("submit").addEventListener("click", function editMem(eve
   var age = document.getElementById("age").value;
   var citizenship_number = document.getElementById("citizenship-number").value;
 
+  if (name == "" || gender == "" || age == "" || citizenship_number == "") {
+    alert("Please fill out all required fields");
+    return;
+  }
   updateData(house_number, id, name, gender, age, citizenship_number);
+  window.location.href = "family_report.html?house=" + house + "&&status=mem_edited";
 });

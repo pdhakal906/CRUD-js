@@ -19,3 +19,13 @@
   height: 30px;
 
 }
+
+a {
+  text-decoration: none;
+}
+
+#done {
+  margin-left: 5px;
+}
+
+#alert-box {}

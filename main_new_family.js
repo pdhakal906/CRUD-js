@@ -10,7 +10,10 @@ document.getElementById("submit").addEventListener("click", function (event) {
   var age = document.getElementById("age").value;
   var citizenship_number = document.getElementById("citizenship-number").value;
 
-
+  if (id == "" || address == "" || mobile_number == "" || name == "" || gender == "" || age == "" || citizenship_number == "") {
+    alert("Please fill out all required fields");
+    return;
+  }
 
 
   var formData = {
@@ -37,15 +40,7 @@ document.getElementById("submit").addEventListener("click", function (event) {
 
   localStorage.setItem("headData", JSON.stringify(allFormData));
 
-  alert("New Family Added");
-
   document.getElementById("myForm").reset();
-  window.location.href = "add_mem.html?house=" + id;
+  window.location.href = "add_mem.html?house=" + id + "&&status=head_added";
 });
-
-// var storedData = localStorage.getItem("formData");
-// var allFormData = JSON.parse(storedData);
-
-// console.log(allFormData);
-
 

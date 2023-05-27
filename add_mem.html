@@ -17,11 +17,6 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Family Record</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
       </div>
     </nav>
 
@@ -30,14 +25,15 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-6">
+          <div id="alert-box"></div>
           <form id="myForm">
             <div class="form-group">
               <label for="name">Name:</label>
-              <input type="text" class="form-control" id="name">
+              <input type="text" class="form-control" id="name" required>
             </div>
             <div class="form-group-a">
               <label for="gender">Gender:</label>
-              <select class="form-group-c" name="gender" id="gender">
+              <select class="form-group-c" name="gender" id="gender" required>
                 <option class="form-group" value="Male">Male</option>
                 <option class="form-group" value="Female">Female</option>
                 <option class="form-group" value="Other">Other</option>
@@ -45,17 +41,19 @@
             </div>
             <div class="form-group">
               <label for="age">Age:</label>
-              <input type="text" class="form-control" id="age">
+              <input type="number" class="form-control" id="age" required>
             </div>
             <div class="form-group">
               <label for="citizenship-number">Citizenship Number:</label>
-              <input type="text" class="form-control" id="citizenship-number">
+              <input type="text" class="form-control" id="citizenship-number" required>
             </div>
 
             <br>
+
             <button type="submit" id="submit" class="btn btn-primary">Submit</button>
-            <a href="new_family.html" class="btn btn-danger">Cancel</a>
-            <a href="new_family.html" class="btn btn-success">Done</a>
+
+            <!-- <a href="new_family.html" class="btn btn-danger">Cancel</a> -->
+            <!-- <a href="new_family.html" class="btn btn-success">Done</a> -->
           </form>
         </div>
       </div>
