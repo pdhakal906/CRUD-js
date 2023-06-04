@@ -1,4 +1,4 @@
-function generateTable() {
+function generateData() {
   var storedHeadData = localStorage.getItem("headData");
   var allHeadData = storedHeadData ? JSON.parse(storedHeadData) : [];
 
@@ -25,6 +25,7 @@ function generateTable() {
       var paragraph = document.createElement("p");
       paragraph.innerHTML = typedValue;
       search_display.appendChild(paragraph);
+
       filteredHeadData = allHeadData.filter(function (data) {
         return data.name.toLowerCase().includes(typedValue);
       });
@@ -84,4 +85,4 @@ function generateTable() {
   }
 }
 
-generateTable();
+generateData();
