@@ -16,7 +16,8 @@
 
 .btn {
   font-size: 12px;
-  height: 30px;
+  height: 3m 0px;
+  margin-left: 10px;
 
 }
 
@@ -28,4 +29,22 @@ a {
   margin-left: 5px;
 }
 
-#alert-box {}
+#search-display {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+
+}
+
+p {
+  font-size: 23px;
+}
+
+.hidden {
+  display: none;
+}
+
+.table {
+  margin-top: 20px;
+  margin-left: 20px;
+}

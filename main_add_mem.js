@@ -1,5 +1,6 @@
 var url = window.location.href;
 var params = new URL(url).searchParams;
+
 var house = params.get("house");
 var status = params.get("status");
 // iterator for auto incrementing member id
@@ -12,10 +13,17 @@ var alert_message = document.getElementById("alert-box");
 var memData = localStorage.getItem("memData");
 var allMemData = JSON.parse(memData) || [];
 
-if (status === "head_added") {
-  var html = "<strong> Family Head</strong> Added Successfully.</div>";
-
+switch (status) {
+  case "head_added":
+    var html = "<strong> Family Head</strong> Added Successfully.</div>";
+    break;
+  case "mem_added":
+    var html = "<strong> Family Member</strong> Added Successfully.</div>";
+    break;
+  default:
+    var html = "";
 }
+
 
 alert_message.className = "alert alert-info";
 alert_message.role = "alert";
@@ -31,7 +39,7 @@ var form = document.getElementById("myForm");
 var cancel = document.createElement("a");
 var done = document.createElement("a");
 cancel.href = "new_family.html";
-done.href = "family_report.html?house=" + house + "&&status=mem_added";
+done.href = "family_report.html?house=" + house + "&&status=fam_added";
 done.id = "done";
 cancel.className = "btn btn-danger";
 done.className = "btn btn-success";

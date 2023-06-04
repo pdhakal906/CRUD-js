@@ -73,7 +73,7 @@ var addresses = result.addresses;
 var table = document.getElementById("data-table");
 
 for (var i = 0; i < ids.length; i++) {
-  var html = "<tr><td id='house-number'>" + ids[i] + "</td><td id = 'name'><a href='family_report.html?house=" + ids[i] + "'>" + names[i] + "</a></td><td id='address'>" + addresses[i] + "</td><td><a href='edit_head.html?house=" + ids[i] + "' class = 'btn btn-success'>Edit</a></td><td><button class = 'btn btn-danger' id = 'delete'>Delete</button></td></tr>";
+  var html = "<tr><td id='house-number'>" + ids[i] + "</td><td id = 'name'><a href='family_report.html?house=" + ids[i] + "'>" + names[i] + "</a></td><td id='address'>" + addresses[i] + "</td><td><a href='edit_head.html?house=" + ids[i] + "' class = 'btn btn-success'>Edit</a><button class = 'btn btn-danger' id = 'delete'>Delete</button></td></tr>";
 
   table.innerHTML += html;
 }

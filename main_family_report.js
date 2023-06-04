@@ -12,10 +12,14 @@ switch (status) {
     var html = "<strong> Member Added </strong> Successfully.</div>";
     break;
   case "mem_edited":
-    var html = "<strong> Member Edited </strong> Successfully.</div>"
+    var html = "<strong> Member Edited </strong> Successfully.</div>";
     break;
   case "mem_deleted":
-    var html = "<strong> Member Deleted </strong> Successfully.</div>"
+    var html = "<strong> Member Deleted </strong> Successfully.</div>";
+    break;
+  case "fam_added":
+    var html = "<strong> Family </strong> Added Successfully.</div>";
+    break;
   default:
     var html = "";
 
@@ -110,8 +114,7 @@ function fillMem() {
     var mem_gender = document.createElement("td");
     var mem_age = document.createElement("td");
     var mem_citizenship_number = document.createElement("td");
-    var edit_element = document.createElement("td");
-    var delete_element = document.createElement("td");
+    var edit_delete_element = document.createElement("td");
     var edit_mem = document.createElement("a");
     var delete_mem = document.createElement("button");
 
@@ -130,8 +133,8 @@ function fillMem() {
     edit_mem.innerText = "Edit";
     delete_mem.innerText = "Delete";
     delete_mem.setAttribute("data-id", memResult[i].id)
-    edit_element.appendChild(edit_mem);
-    delete_element.appendChild(delete_mem);
+    edit_delete_element.appendChild(edit_mem);
+    edit_delete_element.appendChild(delete_mem);
 
 
 
@@ -140,8 +143,7 @@ function fillMem() {
     row.appendChild(mem_gender);
     row.appendChild(mem_age);
     row.appendChild(mem_citizenship_number);
-    row.appendChild(edit_element);
-    row.appendChild(delete_element);
+    row.appendChild(edit_delete_element);
 
 
     table_body.appendChild(row);

@@ -1,3 +1,7 @@
+var url = window.location.href;
+var params = new URL(url).searchParams;
+stat = "";
+
 document.getElementById("submit").addEventListener("click", function (event) {
   event.preventDefault(); // Prevent form submission to avoid page reload
 
@@ -32,15 +36,45 @@ document.getElementById("submit").addEventListener("click", function (event) {
   var storedData = localStorage.getItem("headData");
   var allFormData = storedData ? JSON.parse(storedData) : [];
 
+
   if (!Array.isArray(allFormData)) {
     allFormData = [];
   }
 
-  allFormData.push(formData);
 
-  localStorage.setItem("headData", JSON.stringify(allFormData));
+  function checkDuplicate(newData, allFormData) {
+    for (i = 0; i < allFormData.length; i++) {
+      if (allFormData[i].id === newData["id"]) {
+        return true;
+      }
+    }
+    return false;
+  }
 
-  document.getElementById("myForm").reset();
-  window.location.href = "add_mem.html?house=" + id + "&&status=head_added";
+  if (!checkDuplicate(formData, allFormData)) {
+    allFormData.push(formData);
+
+    localStorage.setItem("headData", JSON.stringify(allFormData));
+
+    document.getElementById("myForm").reset();
+    window.location.href = "add_mem.html?house=" + id + "&&status=head_added";
+
+  } else {
+
+    window.location.href = "new_family.html?status=error"
+  }
+
+
 });
+
+stat = params.get("status");
+var alert_message = document.getElementById("alert-box");
+if (stat === "error") {
+  html = "<strong> Error</strong> The House Number Already Exists.</div>";
+  alert_message.className = "alert alert-info";
+  alert_message.role = "alert";
+  alert_message.innerHTML += html;
+  setTimeout(() => alert_message.remove(), 3000);
+
+}
 
