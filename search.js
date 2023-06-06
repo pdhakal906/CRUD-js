@@ -9,9 +9,12 @@ function generateData() {
   var search = document.getElementById("search");
   var table = document.getElementById("table");
   var search_display = document.getElementById("search-display");
+  var no_res_div = document.getElementById("no-res-div");
 
   search.addEventListener("input", function (event) {
+
     search_display.innerHTML = "";
+
     var typedValue = event.target.value.toLowerCase();
 
     var filteredHeadData = [];
@@ -19,7 +22,7 @@ function generateData() {
 
     if (typedValue.length > 0) {
       var heading = document.createElement("h3");
-      heading.innerHTML = "Search Result(s) For: ";
+      heading.innerHTML = "Search Result(s) For:";
       search_display.appendChild(heading);
 
       var paragraph = document.createElement("p");
@@ -33,8 +36,15 @@ function generateData() {
       filteredMemData = allMemData.filter(function (data) {
         return data.name.toLowerCase().includes(typedValue);
       });
+    }
 
+    if (filteredHeadData.length === 0 && filteredMemData.length === 0) {
 
+      no_res_div.innerHTML = "<p>No result found</p>";
+    }
+
+    if (typedValue.length === 0) {
+      no_res_div.innerHTML = "";
     }
 
     populateTable(filteredHeadData, filteredMemData);
@@ -44,9 +54,12 @@ function generateData() {
   function populateTable(headData, memData) {
     table.innerHTML = "";
 
+
+
     if (headData.length > 0) {
       var trHeader = document.createElement("tr");
       var thName = document.createElement("th");
+      no_res_div.innerHTML = "";
       thName.textContent = "Name";
       trHeader.appendChild(thName);
       table.appendChild(trHeader);
@@ -66,6 +79,7 @@ function generateData() {
       if (!trHeader) {
         var trHeader = document.createElement("tr");
         var thName = document.createElement("th");
+        no_res_div.innerHTML = "";
         thName.textContent = "Name";
         trHeader.appendChild(thName);
         table.appendChild(trHeader);
@@ -81,7 +95,6 @@ function generateData() {
         table.appendChild(tr);
       });
     }
-
   }
 }
 
