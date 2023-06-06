@@ -65,7 +65,7 @@ function getAllResult() {
   };
 }
 
-// Example usage
+
 var result = getAllResult();
 var ids = result.ids;
 var names = result.names;

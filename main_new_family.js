@@ -1,9 +1,28 @@
-var url = window.location.href;
-var params = new URL(url).searchParams;
-stat = "";
+
+function displayAlert() {
+  var url = window.location.href;
+  var params = new URL(url).searchParams;
+
+  var stat = params.get("status");
+  var alert_message = document.getElementById("alert-box");
+  if (stat === "error") {
+    html = "<strong> Error</strong> The House Number Already Exists.</div>";
+    alert_message.className = "alert alert-info";
+    alert_message.role = "alert";
+    alert_message.innerHTML += html;
+    setTimeout(() => alert_message.remove(), 3000);
+
+  }
+
+}
+
+
+
+
 
 document.getElementById("submit").addEventListener("click", function (event) {
-  event.preventDefault(); // Prevent form submission to avoid page reload
+
+  event.preventDefault();
 
 
   var id = document.getElementById("house-number").value;
@@ -14,10 +33,16 @@ document.getElementById("submit").addEventListener("click", function (event) {
   var age = document.getElementById("age").value;
   var citizenship_number = document.getElementById("citizenship-number").value;
 
+
   if (id == "" || address == "" || mobile_number == "" || name == "" || gender == "" || age == "" || citizenship_number == "") {
     alert("Please fill out all required fields");
     return;
   }
+
+
+
+
+
 
 
   var formData = {
@@ -29,8 +54,6 @@ document.getElementById("submit").addEventListener("click", function (event) {
     age: age,
     citizenship_number: citizenship_number
   };
-
-
 
 
   var storedData = localStorage.getItem("headData");
@@ -65,16 +88,9 @@ document.getElementById("submit").addEventListener("click", function (event) {
   }
 
 
+
+
 });
 
-stat = params.get("status");
-var alert_message = document.getElementById("alert-box");
-if (stat === "error") {
-  html = "<strong> Error</strong> The House Number Already Exists.</div>";
-  alert_message.className = "alert alert-info";
-  alert_message.role = "alert";
-  alert_message.innerHTML += html;
-  setTimeout(() => alert_message.remove(), 3000);
-
-}
+displayAlert();
 
